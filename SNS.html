@@ -1,0 +1,55 @@
+
+ <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS・連絡先 | 品川サーペンツ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; margin: 0; padding: 40px 20px; text-align: center; }
+        .sns-container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { margin-bottom: 30px; color: #333; }
+
+        /* リンクボタンの共通設定 */
+        .sns-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .sns-link:hover { transform: scale(1.02); opacity: 0.9; }
+        .sns-link i { font-size: 1.5rem; margin-right: 15px; }
+
+        /* 各SNSの色 */
+        .gmail { background-color: #DB4437; }
+        .x-twitter { background-color: #000000; }
+        .youtube { background-color: #FF0000; }
+    </style>
+</head>
+<body>
+
+    <div class="sns-container">
+        <h2>CONTACT & SNS</h2>
+
+        <a href="mailto:ShinagawaSerpents@gmail.com" class="sns-link gmail">
+            <i class="fa-solid fa-envelope"></i> Gmailで問い合わせる
+        </a>
+
+        <a href="https://x.com/Cap_Serpents" target="_blank" class="sns-link x-twitter">
+            <i class="fa-brands fa-x-twitter"></i> X (Twitter) を見る
+        </a>
+
+        <a href="https://t.co/oFFl5ddkFi" target="_blank" class="sns-link youtube">
+            <i class="fa-brands fa-youtube"></i> YouTube チャンネル
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品川サーペンツ | 公式サイト</title>
+    <style>
+        /* 全体のデザイン設定 */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        
+        /* ヘッダー：背景写真を入れる設定 */
+        header { 
+            background-color: #000; 
+            /* imagesフォルダにヘッダー用の写真（header_photo.jpgなど）を置いて指定してね */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/header_photo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            padding: 80px 20px; 
+            text-align: center; 
+        }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+
+        /* メインビジュアル */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/main_photo.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-direction: column;
+        }
+        .hero h2 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+        /* コンテンツ部分 */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .section { margin-bottom: 60px; text-align: center; }
+        
+        /* カード形式のレイアウト */
+        .flex-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        
+        /* リンクの装飾を消す */
+        .card-link { text-decoration: none; color: inherit; display: block; }
+
+        .card { 
+            border: 1px solid #ddd; 
+            background-color: #fff;
+            padding: 30px 20px; 
+            border-radius: 12px; 
+            width: 280px; 
+            transition: 0.3s; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card h4 { margin-top: 0; color: #000; font-size: 1.2rem; }
+
+        /* ボタン風の装飾 */
+        .view-btn {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        footer { background: #333; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>品川サーペンツ</h1>
+        <p>Shinagawa Serpents Official Website</p>
+    </header>
+
+    <div class="hero">
+        <h2>We Play Cap Baseball.</h2>
+        <p>最高の一投を、品川から。</p>
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <h3>ABOUT US</h3>
+            <p>品川サーペンツは、大学院生・社会人・高校生が垣根を越えたキャップ野球チームです。</p>
+        </section>
+
+        <section class="section">
+            <h3>ACTIVITIES</h3>
+            <div class="flex-container">
+                
+                <a href="leagu.html" class="card-link">
+                    <div class="card">
+                        <h4>リーグ戦戦績</h4>
+                        
+                        <button class="view-btn">詳しく見る</button>
+                    </div>
+                </a>
+
+                <a href="taikai.html" class="card-link">
+                    <div class="card">
+                        <h4>大会出場</h4>
+                        
+                        <button class="view-btn">詳しく見る</button>
+                    </div>
+                </a>
+
+                <a href="member.html" class="card-link">
+                    <div class="card">
+                        <h4>メンバー一覧</h4>
+                   
+                        <button class="view-btn">詳しく見る</button>
+                    </div>
+                </a>
+
+                <a href="SNS.html" class="card-link">
+                    <div class="card">
+                        <h4>SNS・連絡先</h4>
+                        
+                        <button class="view-btn">詳しく見る</button>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </div>
+
+    //ここに無限ループ写真入れたい
+    
+    <footer>
+        <p>&copy; 2026 品川サーペンツ</p>
+    </footer>
+
+</body>
+</html>

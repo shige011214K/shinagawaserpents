@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <title>メンバー紹介 | 品川サーペンツ</title>
     <style>
-        /* 全体の設定 */
         body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
 
-        /* 親の箱：PCでは3列 */
+        /* 全体を包む袋（これ1つだけでOK！） */
         .member-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -16,23 +15,35 @@
             margin: 0 auto;
         }
 
-        /* カードの設定 */
+        /* リンクの見た目を消す設定 */
+        .member-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .member-card {
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
             text-align: center;
+            transition: transform 0.2s; /* マウスを乗せた時に少し動くオシャレ演出 */
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .member-card img {
-            width: 85%;
+            width: 100%; /* 枠いっぱいに広げる */
             height: 300px;
             object-fit: cover;
             border-radius: 4px;
         }
 
-        /* スマホ設定：画面幅が770px以下の時は1列 */
+        /* スマホ設定：770px以下は1列 */
         @media (max-width: 770px) {
             .member-grid {
                 grid-template-columns: 1fr;
@@ -42,81 +53,79 @@
 </head>
 <body>
 
-   <a href="informationofmember/info_fujimoto.html">
-     <div class="member-grid">
+    <h1 style="text-align: center;">メンバー紹介</h1>
+
+    <div class="member-grid">
+
+        <a href="informationofmember/info_fujimoto.html" class="member-link">
             <div class="member-card">
-             <img src="images/introduce_each_member/fujimoto.JPG" alt="藤本">
-             <h3>1 藤本</h3>
-      
-        </div>
-    </a>   
+                <img src="images/introduce_each_member/fujimoto.JPG" alt="藤本">
+                <h3>1 藤本</h3>
+            </div>
+        </a>
 
- <a href="informationofmember/info_hagiwara.html">
-        <div class="member-card">
-            <img src="images/introduce_each_member/hagiwara.JPG" alt="萩原">
-            <h3>17 萩原</h3>
-          
-        </div>
- </a>   
+        <a href="informationofmember/info_horiguchi.html" class="member-link">
+            <div class="member-card">
+                <img src="https://placehold.jp/24/cccccc/ffffff/300x300.png?text=No%20Image" alt="4">
+                <h3>4 </h3>
+            </div>
+        </a>
 
-     <a href="informationofmember/info_katopopo.html">
-        <div class="member-card">
-            <img src="images/introduce_each_member/katopopo.JPG" alt="加藤">
-            <h3>19 加藤</h3>
-        
-        </div>
-     </a>   
+        <a href="informationofmember/info_hagiwara.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/hagiwara.JPG" alt="萩原">
+                <h3>17 萩原</h3>
+            </div>
+        </a>
 
-    <a href="informationofmember/info_hamada.html">
-        <div class="member-card">
-            <img src="images/introduce_each_member/hamada.JPG" alt="濵田">
-            <h3>31 濵田</h3>
-            
-        </div>
-    </a>   
+        <a href="informationofmember/info_katopopo.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/katopopo.JPG" alt="加藤">
+                <h3>19 加藤</h3>
+            </div>
+        </a>
 
+        <a href="informationofmember/info_hamada.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/hamada.JPG" alt="濵田">
+                <h3>31 濵田</h3>
+            </div>
+        </a>
 
-     <a href="informationofmember/info_kosugi.html">
-        <div class="member-card">
-            <img src="images/introduce_each_member/kosugi.JPG" alt="小杉">
-            <h3>34 小杉 [代表]</h3>
-           
-        </div>
-    </a>   
+        <a href="informationofmember/info_kosugi.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/kosugi.JPG" alt="小杉">
+                <h3>34 小杉 [代表]</h3>
+            </div>
+        </a>
 
-    <a href="informationofmember/info_matukawa.html">
-        <div class="member-card">
-            <img src="images/introduce_each_member/matukawa.JPG" alt="松川">
-            <h3>43 松川</h3>
-          
-        </div>
+        <a href="informationofmember/info_matukawa.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/matukawa.JPG" alt="松川">
+                <h3>43 松川</h3>
+            </div>
+        </a>
 
-    </a>
+        <a href="informationofmember/info_fujita.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/fujita.JPG" alt="藤田">
+                <h3>54 藤田</h3>
+            </div>
+        </a>
 
-    <a href="informationofmember/info_fujita.html">    
-        <div class="member-card">
-            <img src="images/introduce_each_member/fujita.JPG" alt="藤田">
-            <h3>54 藤田</h3>
-        </div>
-    </a>    
+        <a href="informationofmember/info_terada.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/terada.JPG" alt="寺田">
+                <h3>55 寺田</h3>
+            </div>
+        </a>
 
-    <a href="informationofmember/info_terada.html">
-        <div class="member-card">
-            <img src="images/introduce_each_member/terada.JPG" alt="寺田">
-            <h3>55 寺田</h3>
-           
-        </div>
+        <a href="informationofmember/info_shima.html" class="member-link">
+            <div class="member-card">
+                <img src="images/introduce_each_member/shima.JPG" alt="島">
+                <h3>95 島</h3>
+            </div>
+        </a>
 
-    </a>   
-
-    <a href="informationofmember/info_shima.html">    
-        <div class="member-card">
-            <img src="images/introduce_each_member/shima.JPG" alt="島">
-            <h3>95 島</h3>
-            
-        </div>
-
-    </div>
-
-</body>
+    </div> </body>
 </html>

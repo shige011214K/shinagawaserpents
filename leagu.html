@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="top_2.html" class="nav-logo">Shinagawa Serpents</a>
@@ -24,6 +25,7 @@
     </div>
   </nav>
 
+  <!-- Page Header -->
   <div class="page-header">
     <p class="page-header-label">Shinagawa Serpents</p>
     <h1>League Results</h1>
@@ -32,109 +34,140 @@
 
   <div class="section" style="padding-top: 0;">
     
+    <!-- 1段目：2025年のカード2枚 -->
     <div class="achievement-grid">
 
-      <div class="achievement-card champion">
+      <!-- 2025年春 -->
+      <div class="achievement-card champion" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
           <p class="achievement-badge">2025 Spring Season</p>
           <h2 class="achievement-title">2部B リーグ 優勝</h2>
           <p class="achievement-note">※三田キャップ投げ倶楽部様と連合</p>
         </div>
-        <div class="video-list">
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト（再生リスト）</p>
-          <div class="video-item">
-            <a href="https://www.youtube.com/playlist?list=PLXCYrrdojr0qBQUV-U5uSedX-Rd2Or3cG" target="_blank" class="yt-btn">
-              <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-              再生リストを視聴
-            </a>
-            <span class="video-source">チャンネル: 弊チーム公式 Ch</span>
+        
+        <div class="video-list" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; margin-top: 16px;">
+          
+          <!-- 各試合ハイライト（再生リスト） -->
+          <div style="margin-bottom: auto;">
+            <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト（再生リスト）</p>
+            <div class="video-item">
+              <a href="https://www.youtube.com/playlist?list=PLXCYrrdojr0qBQUV-U5uSedX-Rd2Or3cG" target="_blank" class="yt-btn">
+                <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                再生リストを視聴
+              </a>
+              <span class="video-source">チャンネル: 弊チーム公式 Ch</span>
+            </div>
           </div>
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase; margin-top:8px;">順位決定戦</p>
-          <div class="video-item">
-            <a href="https://www.youtube.com/shorts/Ql5Heqpl7p8?feature=share" target="_blank" class="yt-btn">
-              <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-              YouTubeで再生
-            </a>
-            <span class="video-source">チャンネル: キャップ野球TV 様</span>
+          
+          <!-- 💡 完全に古いコードを消去し、1つずつ縦に並ぶ「段違いの構造」に固定しました -->
+          <div style="margin-top: 16px;">
+            <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase; margin-bottom: 4px;">順位決定戦</p>
+            <div class="video-item" style="margin-bottom: 16px;">
+              <a href="https://www.youtube.com/shorts/Ql5Heqpl7p8?feature=share" target="_blank" class="yt-btn" style="font-size:0.82rem; padding:12px 14px; display: inline-flex; align-items: center; justify-content: center; width: 100%; box-sizing: border-box;">
+                順位決定戦を視聴
+              </a>
+              <span class="video-source">キャップ野球TV 様</span>
+            </div>
+
+            <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase; margin-bottom: 4px;">リーグ入れ替え戦</p>
+            <div class="video-item">
+              <a href="https://www.youtube.com/shorts/I5qlMKdxhlU?feature=share" target="_blank" class="yt-btn" style="font-size:0.82rem; padding:12px 14px; display: inline-flex; align-items: center; justify-content: center; width: 100%; box-sizing: border-box;">
+                リーグ入れ替え戦を視聴
+              </a>
+              <span class="video-source">キャップ野球TV 様</span>
+            </div>
           </div>
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase; margin-top:8px;">リーグ入れ替え戦</p>
-          <div class="video-item">
-            <a href="https://www.youtube.com/shorts/I5qlMKdxhlU?feature=share" target="_blank" class="yt-btn">
-              <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-              YouTubeで再生
-            </a>
-            <span class="video-source">チャンネル: キャップ野球TV 様</span>
-          </div>
+
         </div>
       </div>
 
-      <div class="achievement-card">
+      <!-- 2025年秋 -->
+      <div class="achievement-card" style="display: flex; flex-direction: column; justify-content: space-between;">
         <div>
           <p class="achievement-badge">2025 Autumn Season</p>
           <h2 class="achievement-title">1部 4位</h2>
           <p class="achievement-note">※単独出場</p>
         </div>
-        <div class="video-list">
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト（再生リスト）</p>
-          <div class="video-item">
-            <a href="https://www.youtube.com/playlist?list=PLXCYrrdojr0oFWR5goyp4c6662P1aM56b" target="_blank" class="yt-btn">
-              <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-              再生リストを視聴
-            </a>
-            <span class="video-source">チャンネル: 弊チーム公式 Ch</span>
-          </div>
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase; margin-top:8px;">チーム特集</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        
+        <div class="video-list" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; margin-top: 16px;">
+          
+          <!-- 各試合ハイライト（再生リスト） -->
+          <div style="margin-bottom: auto;">
+            <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト（再生リスト）</p>
             <div class="video-item">
-              <a href="https://www.youtube.com/shorts/6gEzf-vXvzs" target="_blank" class="yt-btn" style="font-size:0.78rem; padding:10px 14px;">マシンガン打線</a>
-              <span class="video-source">キャップ野球TV 様</span>
-            </div>
-            <div class="video-item">
-              <a href="https://www.youtube.com/shorts/ZIrCSo2U_tM?feature=share" target="_blank" class="yt-btn" style="font-size:0.78rem; padding:10px 14px;">Man of the Day</a>
-              <span class="video-source">キャップ野球TV 様</span>
-            </div>
-            <div class="video-item">
-              <a href="https://www.youtube.com/shorts/hL4Y3KMvspU" target="_blank" class="yt-btn" style="font-size:0.78rem; padding:10px 14px;">打線爆発</a>
-              <span class="video-source">弊チーム公式 Ch</span>
-            </div>
-            <div class="video-item">
-              <a href="https://www.youtube.com/shorts/SVVwloSAfrI" target="_blank" class="yt-btn" style="font-size:0.78rem; padding:10px 14px;">HR集</a>
-              <span class="video-source">弊チーム公式 Ch</span>
+              <a href="https://www.youtube.com/playlist?list=PLXCYrrdojr0oFWR5goyp4c6662P1aM56b" target="_blank" class="yt-btn">
+                <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                再生リストを視聴
+              </a>
+              <span class="video-source">チャンネル: 弊チーム公式 Ch</span>
             </div>
           </div>
+          
+          <!-- チーム特集（2×2レイアウト） -->
+          <div style="margin-top: 16px;">
+            <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">チーム特集</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div class="video-item">
+                <a href="https://www.youtube.com/shorts/6gEzf-vXvzs" target="_blank" class="yt-btn" style="font-size:0.82rem; padding:12px 14px;">マシンガン打線</a>
+                <span class="video-source">キャップ野球TV 様</span>
+              </div>
+              <div class="video-item">
+                <a href="https://www.youtube.com/shorts/ZIrCSo2U_tM?feature=share" target="_blank" class="yt-btn" style="font-size:0.82rem; padding:12px 14px;">Man of the Day</a>
+                <span class="video-source">キャップ野球TV 様</span>
+              </div>
+              <div class="video-item">
+                <a href="https://www.youtube.com/shorts/hL4Y3KMvspU" target="_blank" class="yt-btn" style="font-size:0.82rem; padding:12px 14px;">打線爆発</a>
+                <span class="video-source">弊チーム公式 Ch</span>
+              </div>
+              <div class="video-item">
+                <a href="https://www.youtube.com/shorts/SVVwloSAfrI" target="_blank" class="yt-btn" style="font-size:0.82rem; padding:12px 14px;">HR集</a>
+                <span class="video-source">弊チーム公式 Ch</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-    </div> <div class="achievement-grid" style="margin-top: 24px;">
+    </div> <!-- 1段目の grid 終了 -->
+
+    <!-- 2段目：2026年のカード -->
+    <div class="achievement-grid" style="margin-top: 24px; display: flex; justify-content: flex-start;">
       
-      <div class="achievement-card">
+      <!-- 2026年春 -->
+      <div class="achievement-card" style="width: calc(50% - 12px); max-width: 100%; box-sizing: border-box;">
         <div>
           <p class="achievement-badge">2026 Spring Season</p>
           <h2 class="achievement-title">1部 参戦中</h2>
           <p class="achievement-note">※単独出場</p>
         </div>
+        
         <div class="video-list">
           <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト（再生リスト）</p>
-          <div class="video-item">
+          <div class="video-item" style="margin-bottom: 16px;">
             <a href="https://www.youtube.com/playlist?list=PLXCYrrdojr0p1iIOADnoKyFLMVabWbEqi" target="_blank" class="yt-btn">
               <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
               再生リストを視聴
             </a>
             <span class="video-source">チャンネル: 弊チーム公式 Ch</span>
           </div>
-          
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase; margin-top:8px;">チーム特集</p>
+
+          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">チーム特集</p>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
             <div class="video-item">
-              <a href="https://www.youtube.com/shorts/dvpqIW1wRvs" target="_blank" class="yt-btn" style="font-size:0.78rem; padding:10px 14px;">時代は一発攻勢</a>
+              <a href="https://www.youtube.com/shorts/dvpqIW1wRvs" target="_blank" class="yt-btn" style="font-size:0.82rem; padding:12px 14px;">時代は一発攻勢</a>
               <span class="video-source">弊チーム公式 Ch</span>
             </div>
           </div>
         </div>
       </div>
-      
-      <div style="display: block; width: 100%; height: 0; pointer-events: none;"></div>
-    </div> </div> <footer class="footer">
+
+    </div> <!-- 2段目の grid 終了 -->
+
+  </div> <!-- section 終了 -->
+
+  <!-- Footer -->
+  <footer class="footer">
     <p class="footer-logo">Shinagawa Serpents</p>
     <p>&copy; 2025 品川サーペンツ</p>
     <p>文責: 藤田</p>

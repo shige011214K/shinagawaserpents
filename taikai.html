@@ -1,45 +1,101 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>詳細情報_大会実績</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大会出場 | 品川サーペンツ</title>
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px; align-items: stretch;">
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="top_2.html" class="nav-logo">Shinagawa Serpents</a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="top_2.html">Home</a></li>
+        <li><a href="member.html">Members</a></li>
+        <li><a href="leagu.html">League</a></li>
+        <li><a href="taikai.html" class="active">Tournament</a></li>
+        <li><a href="SNS.html">SNS</a></li>
+      </ul>
+    </div>
+  </nav>
 
-        <div style="flex: 1; min-width: 300px; max-width: 450px; padding: 20px; border: 2px solid #0045ff; border-radius: 10px; background: #f0f5ff; text-align: center; display: flex; flex-direction: column;">
-            <h2>第7回東大カップ 優勝</h2>
-            <div style="flex-grow: 1;">
-                <p><b>各試合ハイライト</b></p>
-                </div>
-        </div>
+  <!-- Page Header -->
+  <div class="page-header">
+    <p class="page-header-label">Shinagawa Serpents</p>
+    <h1>Tournament</h1>
+    <div class="page-header-line"></div>
+  </div>
 
-        <div style="flex: 1; min-width: 300px; max-width: 450px; padding: 20px; border: 2px solid #0045ff; border-radius: 10px; background: #f0f5ff; text-align: center; display: flex; flex-direction: column;">
-            <h2>第2回青学カップ 3位</h2> 
-            <p>※北大キャップ投げサークル様と連合</p>
-            <div style="flex-grow: 1;">
-                <p><b>各試合ハイライト</b></p>
-                </div>
-        </div>
+  <div class="section" style="padding-top: 0;">
+    <div class="achievement-grid">
 
-        <div style="flex: 1; min-width: 300px; max-width: 450px; padding: 20px; border: 2px solid #ff4500; border-radius: 10px; background: #fff5f0; text-align: center; display: flex; flex-direction: column;">
-            <h2>第4回蓋ノ陣 in 京都</h2>
-            <p><b>決勝トーナメント1回戦敗退</b></p>
-            <div style="flex-grow: 1;">
-                <p><b>各試合ハイライト</b></p>
-                </div>
+      <div class="achievement-card champion">
+        <div>
+          <p class="achievement-badge">東大カップ 第7回</p>
+          <h2 class="achievement-title">優勝</h2>
         </div>
-        
-        <div style="flex: 1; min-width: 300px; max-width: 450px; padding: 20px; border: 2px solid #ff4500; border-radius: 10px; background: #fff5f0; text-align: center; display: flex; flex-direction: column;">
-            <h2>第7回東西統一蓋祭</h2>
-            <p><b>本戦ベスト16</b></p>
-            <div style="flex-grow: 1;">
-                <p><b>各試合ハイライト</b></p>
-                </div>
+        <div class="video-list">
+          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト</p>
+          <div class="coming-soon">Coming Soon</div>
         </div>
+      </div>
+
+      <div class="achievement-card">
+        <div>
+          <p class="achievement-badge">青学カップ 第2回</p>
+          <h2 class="achievement-title">3位</h2>
+          <p class="achievement-note">※北大キャップ投げサークル様と連合</p>
+        </div>
+        <div class="video-list">
+          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+      </div>
+
+      <div class="achievement-card">
+        <div>
+          <p class="achievement-badge">蓋ノ陣 in 京都 第4回</p>
+          <h2 class="achievement-title">決勝T 1回戦敗退</h2>
+        </div>
+        <div class="video-list">
+          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+      </div>
+
+      <div class="achievement-card">
+        <div>
+          <p class="achievement-badge">東西統一蓋祭 第7回</p>
+          <h2 class="achievement-title">本戦 ベスト16</h2>
+        </div>
+        <div class="video-list">
+          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.05em; color:var(--muted); text-transform:uppercase;">各試合ハイライト</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+      </div>
 
     </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-logo">Shinagawa Serpents</p>
+    <p>&copy; 2025 品川サーペンツ</p>
+    <p>文責: 藤田</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
 
 </body>
 </html>

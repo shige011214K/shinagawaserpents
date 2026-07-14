@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>詳細情報_堀口</title>
-    
-    <h1>4 堀口</h1>
-    <h2>経歴</h2>
-     <p>青山学院大学キャップ投げ愛好会→品川サーペンツ</p>   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>堀口 | 品川サーペンツ</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/member.css">
+</head>
+<body>
 
-     <h2>個人特集動画</h2>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../top_2.html" class="nav-logo">Shinagawa Serpents</a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../top_2.html">Home</a></li>
+        <li><a href="../member.html" class="active">Members</a></li>
+        <li><a href="../leagu.html">League</a></li>
+        <li><a href="../taikai.html">Tournament</a></li>
+        <li><a href="../SNS.html">SNS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="player-header">
+    <div class="player-number-bg">04</div>
+    <div class="player-inner">
+      <div class="player-photo-placeholder">No Image</div>
+      <div class="player-meta">
+        <p class="player-num-label"># 04</p>
+        <h1 class="player-name">堀口</h1>
+        <div class="career-path">
+          <span class="career-item">青山学院大学キャップ投げ愛好会</span>
+          <span class="career-arrow">→</span>
+          <span class="career-item career-current">品川サーペンツ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <a href="../member.html" class="back-link">メンバー一覧に戻る</a>
+
+    <p class="section-label">Highlight Videos</p>
+    <h2 class="section-title">個人特集動画</h2>
+    <div class="section-divider"></div>
+
+    <div class="no-video">Coming Soon</div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-logo">Shinagawa Serpents</p>
+    <p>&copy; 2025 品川サーペンツ</p>
+  </footer>
+
+  <script>
+    const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+    t.addEventListener('click',()=>l.classList.toggle('open'));
+    l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+  </script>
+</body>
+</html>

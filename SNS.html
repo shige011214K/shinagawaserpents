@@ -1,67 +1,186 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SNS・連絡先 | 品川サーペンツ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body { font-family: sans-serif; background-color: #f0f2f5; margin: 0; padding: 40px 20px; text-align: center; }
-        .sns-container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h2 { margin-bottom: 30px; color: #333; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNS・連絡先 | 品川サーペンツ</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .sns-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+    }
 
-        /* リンクボタンの共通設定 */
-        .sns-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        .sns-link:hover { transform: scale(1.02); opacity: 0.9; }
-        .sns-link i { font-size: 1.5rem; margin-right: 15px; }
+    .sns-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 4px;
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      margin-bottom: 16px;
+    }
+    .sns-link:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 16px var(--red-glow);
+      border-color: var(--red);
+    }
 
-        /* 各SNSの色 */
-        .gmail { background-color: #DB4437; }
-        .x-twitter { background-color: #000000; }
-        .youtube { background-color: #FF0000; }
-    </style>
+    .sns-icon {
+      font-size: 1.6rem;
+      width: 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .sns-text {
+      flex: 1;
+    }
+
+    .sns-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .sns-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .sns-arrow {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .sns-link:hover .sns-arrow {
+      color: var(--red);
+      transform: translateX(4px);
+    }
+
+    .recruit-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--red);
+      border-radius: 4px;
+      padding: 32px 28px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .recruit-box h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .recruit-box p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="sns-container">
-        <h2>CONTACT & SNS</h2>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="top_2.html" class="nav-logo">Shinagawa Serpents</a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="top_2.html">Home</a></li>
+        <li><a href="member.html">Members</a></li>
+        <li><a href="leagu.html">League</a></li>
+        <li><a href="taikai.html">Tournament</a></li>
+        <li><a href="SNS.html" class="active">SNS</a></li>
+      </ul>
+    </div>
+  </nav>
 
-        <a href="mailto:ShinagawaSerpents@gmail.com" class="sns-link gmail">
-            <i class="fa-solid fa-envelope"></i> Gmailで問い合わせる
+  <!-- Page Header -->
+  <div class="page-header">
+    <p class="page-header-label">Shinagawa Serpents</p>
+    <h1>Contact & SNS</h1>
+    <div class="page-header-line"></div>
+  </div>
+
+  <div class="section" style="padding-top: 0;">
+    <div class="sns-wrap">
+
+      <a href="mailto:ShinagawaSerpents@gmail.com" class="sns-link">
+        <span class="sns-icon"><i class="fa-solid fa-envelope" style="color:var(--red);"></i></span>
+        <div class="sns-text">
+          <p class="sns-name">Gmail</p>
+          <p class="sns-desc">ShinagawaSerpents@gmail.com</p>
+        </div>
+        <span class="sns-arrow">→</span>
+      </a>
+
+      <a href="https://x.com/Cap_Serpents" target="_blank" class="sns-link">
+        <span class="sns-icon"><i class="fa-brands fa-x-twitter"></i></span>
+        <div class="sns-text">
+          <p class="sns-name">X (Twitter)</p>
+          <p class="sns-desc">@Cap_Serpents — 試合情報・活動報告</p>
+        </div>
+        <span class="sns-arrow">→</span>
+      </a>
+
+      <a href="https://t.co/oFFl5ddkFi" target="_blank" class="sns-link">
+        <span class="sns-icon"><i class="fa-brands fa-youtube" style="color:var(--red);"></i></span>
+        <div class="sns-text">
+          <p class="sns-name">YouTube</p>
+          <p class="sns-desc">試合ハイライト・個人特集動画</p>
+        </div>
+        <span class="sns-arrow">→</span>
+      </a>
+
+      <!-- 入部 -->
+      <div class="recruit-box">
+        <h3>Join Us</h3>
+        <p>
+          現在、中高生以外の新規メンバーの公募は行なっておりません。<br>
+          中高生の方は以下の注意事項をよく読んでから応募をお願いいたします。
+        </p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSec5JhgUgENRb8blB0MGeOTuapTf4AINgU6L3_a6UzwQKSWow/viewform?pli=1"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-red">
+          中高生の入部希望はこちら →
         </a>
-
-        <a href="https://x.com/Cap_Serpents" target="_blank" class="sns-link x-twitter">
-            <i class="fa-brands fa-x-twitter"></i> X (Twitter) を見る
-        </a>
-
-        <a href="https://t.co/oFFl5ddkFi" target="_blank" class="sns-link youtube">
-            <i class="fa-brands fa-youtube"></i> YouTube チャンネル
-        </a>
-
-        <p>現在、中高生以外の新規メンバーの公募は行なっておりません。</p>
-        <p>中高生の方に関しては、以下のフォームの注意点をよく読んでから応募をお願いいたします。</p>
-        <div style="text-align: center; margin: 20px 0;">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSec5JhgUgENRb8blB0MGeOTuapTf4AINgU6L3_a6UzwQKSWow/viewform?pli=1" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       style="display: inline-block; padding: 15px 30px; background: #ff4500; color: white; text-decoration: none; border-radius: 30px; font-weight: bold; box-shadow: 0 4px 10px rgba(255,69,0,0.3);">
-        中高生の入部希望はこちらから！
-    </a>
-</div>
+      </div>
 
     </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-logo">Shinagawa Serpents</p>
+    <p>&copy; 2025 品川サーペンツ</p>
+    <p>文責: 藤田</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
 
 </body>
 </html>

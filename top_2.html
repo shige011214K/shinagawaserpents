@@ -1,141 +1,420 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>品川サーペンツ | 公式サイト</title>
-    <style>
-        /* 全体のデザイン設定 */
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: #f9f9f9; }
-        
-        /* ヘッダー：背景写真を入れる設定 */
-        header { 
-            background-color: #000; 
-            /* imagesフォルダにヘッダー用の写真（header_photo.jpgなど）を置いて指定してね */
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/header_photo.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white; 
-            padding: 80px 20px; 
-            text-align: center; 
-        }
-        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>品川サーペンツ | 公式サイト</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--bg);
+    }
 
-        /* メインビジュアル */
-        .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/main_photo.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            flex-direction: column;
-        }
-        .hero h2 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    /* 斜めストライプ背景 */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 60px,
+          rgba(204,0,0,0.04) 60px,
+          rgba(204,0,0,0.04) 61px
+        );
+      pointer-events: none;
+    }
 
-        /* コンテンツ部分 */
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .section { margin-bottom: 60px; text-align: center; }
-        
-        /* カード形式のレイアウト */
-        .flex-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        
-        /* リンクの装飾を消す */
-        .card-link { text-decoration: none; color: inherit; display: block; }
+    /* 右下の大きな赤い斜めブロック */
+    .hero-accent {
+      position: absolute;
+      right: -120px;
+      bottom: -80px;
+      width: 520px;
+      height: 520px;
+      background: var(--red);
+      opacity: 0.07;
+      transform: rotate(20deg);
+      border-radius: 4px;
+      pointer-events: none;
+    }
 
-        .card { 
-            border: 1px solid #ddd; 
-            background-color: #fff;
-            padding: 30px 20px; 
-            border-radius: 12px; 
-            width: 280px; 
-            transition: 0.3s; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .card h4 { margin-top: 0; color: #000; font-size: 1.2rem; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      /* プレイヤー画像分の下スペースを確保 */
+      margin-bottom: 28vh;
+    }
 
-        /* ボタン風の装飾 */
-        .view-btn {
-            margin-top: 15px;
-            padding: 8px 20px;
-            background: #000;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
+    /* ── メンバークラスター 4/3/2 ── */
+    .hero-players {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 520px;
+      height: 80vh;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
 
-        footer { background: #333; color: white; text-align: center; padding: 30px; margin-top: 50px; }
-    </style>
+    .hero-player-item {
+      position: absolute;
+      bottom: 0;
+      width: 130px;
+    }
+
+    .hero-player-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+    }
+
+    /* 前列 2人: 最大・最前面 ─ 中央に隙間なく配置 */
+    .hero-player-item:nth-child(1) { left:  65px; bottom:    0; height: 66vh; z-index: 9; }
+    .hero-player-item:nth-child(2) { left: 325px; bottom:    0; height: 66vh; z-index: 8; }
+
+    /* 後列 4人: 最小・最背面 ─ 全幅に隙間なく配置 */
+    .hero-player-item:nth-child(6) { left:   0px; bottom: 8vh; height: 38vh; z-index: 6; }
+    .hero-player-item:nth-child(7) { left: 130px; bottom: 8vh; height: 38vh; z-index: 6; }
+    .hero-player-item:nth-child(8) { left: 260px; bottom: 8vh; height: 38vh; z-index: 6; }
+    .hero-player-item:nth-child(9) { left: 390px; bottom: 8vh; height: 38vh; z-index: 6; }
+
+    /* 中列 3人: 中段に隙間なく配置 */
+    .hero-player-item:nth-child(3) { left:  65px; bottom: 16vh; height: 52vh; z-index: 4; }
+    .hero-player-item:nth-child(4) { left: 195px; bottom: 16vh; height: 52vh; z-index: 4; }
+    .hero-player-item:nth-child(5) { left: 325px; bottom: 16vh; height: 52vh; z-index: 4; }
+
+    
+
+    @media (max-width: 768px) {
+      .hero-content { margin-bottom: 26vh; }
+      .hero-players {
+        transform: translateX(-50%) scale(0.52);
+        transform-origin: bottom center;
+      }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.4em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .hero-title .team-name {
+      color: var(--red);
+      display: block;
+      text-shadow: 0 0 60px rgba(204,0,0,0.4);
+    }
+
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .hero-cta {
+      margin-top: 44px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── About ── */
+    .about-section {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stat {
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 4px;
+    }
+
+    .stat-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+      text-shadow: 0 0 20px var(--red-glow);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ── Activities ── */
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .activity-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-bottom: 3px solid var(--red);
+      border-radius: 4px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 24px var(--red-glow);
+    }
+
+    .activity-icon {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 16px;
+      display: block;
+      color: var(--red);
+    }
+
+    .activity-card h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .activity-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>品川サーペンツ</h1>
-        <p>Shinagawa Serpents Official Website</p>
-    </header>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="top_2.html" class="nav-logo">Shinagawa Serpents</a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="top_2.html" class="active">Home</a></li>
+        <li><a href="member.html">Members</a></li>
+        <li><a href="leagu.html">League</a></li>
+        <li><a href="taikai.html">Tournament</a></li>
+        <li><a href="SNS.html">SNS</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <div class="hero">
-        <h2>We Play Cap Baseball.</h2>
-        <p>最高の一投を、品川から。</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-accent"></div>
+
+    <div class="hero-players">
+      <div class="hero-player-item"><img src="images/introduce_each_member/fujimoto_transparent.png"  alt="藤本"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/hagiwara_transparent.png"  alt="萩原"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/kato_transparent.png"      alt="加藤"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/hamada_transparent.png"    alt="濵田"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/kosugi_transparent.png"    alt="小杉"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/matsukawa_transparent.png" alt="松川"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/fujita_transparent.png"    alt="藤田"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/terada_transparent.png"    alt="寺田"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/shima_transparent.png"     alt="島"></div>
     </div>
 
-    <div class="container">
-        <section class="section">
-            <h3>ABOUT US</h3>
-            <p>品川サーペンツは、大学院生・社会人・高校生が垣根を越えたキャップ野球チームです。</p>
-        </section>
-
-        <section class="section">
-            <h3>ACTIVITIES</h3>
-            <div class="flex-container">
-                
-                <a href="leagu.html" class="card-link">
-                    <div class="card">
-                        <h4>リーグ戦戦績</h4>
-                        
-                        <button class="view-btn">詳しく見る</button>
-                    </div>
-                </a>
-
-                <a href="taikai.html" class="card-link">
-                    <div class="card">
-                        <h4>大会出場</h4>
-                        
-                        <button class="view-btn">詳しく見る</button>
-                    </div>
-                </a>
-
-                <a href="member.html" class="card-link">
-                    <div class="card">
-                        <h4>メンバー一覧</h4>
-                   
-                        <button class="view-btn">詳しく見る</button>
-                    </div>
-                </a>
-
-                <a href="SNS.html" class="card-link">
-                    <div class="card">
-                        <h4>SNS・連絡先</h4>
-                        
-                        <button class="view-btn">詳しく見る</button>
-                    </div>
-                </a>
-
-            </div>
-        </section>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Cap Baseball Team — Tokyo</p>
+      <h1 class="hero-title">
+        Shinagawa<br>
+        <span class="team-name">Serpents</span>
+      </h1>
+      <p class="hero-sub">最高の一投を、品川から。</p>
+      <div class="hero-cta">
+        <a href="member.html" class="btn btn-red">メンバー紹介</a>
+        <a href="leagu.html" class="btn btn-outline">戦績を見る</a>
+      </div>
     </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
 
-    //ここに無限ループ写真入れたい
-    
-    <footer>
-        <p>&copy; 2025 品川サーペンツ</p>
-        <p>文責: 藤田</p>
-    </footer>
+  <!-- About -->
+  <div class="about-section">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title" style="margin-bottom:20px;">We Play<br>Cap Baseball.</h2>
+        <div class="section-divider"></div>
+        <p>品川サーペンツは、大学院生・社会人・高校生が垣根を越えたキャップ野球チームです。チームカラーの赤と黒に染まり、品川から全国の舞台へ挑み続けます。</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">メンバー数</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1部</div>
+          <div class="stat-label">リーグ在籍</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">優勝</div>
+          <div class="stat-label">2部Bリーグ 2025春</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2025</div>
+          <div class="stat-label">活動中</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activities -->
+  <div class="section">
+    <p class="section-label">Activities</p>
+    <h2 class="section-title">Team Contents</h2>
+    <div class="section-divider"></div>
+    <div class="activities-grid">
+
+      <a href="leagu.html" style="text-decoration:none; color:inherit;">
+        <div class="activity-card">
+          <svg class="activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h12M6 3v6a6 6 0 0 0 12 0V3M6 3H4M18 3h2M8 21h8M12 15v6"/></svg>
+          <h4>リーグ戦戦績</h4>
+          <p>2025年春 2部B優勝。現在1部で奮戦中。</p>
+          <span class="btn btn-outline" style="display:inline-block; font-size:0.8rem; padding:8px 20px;">詳しく見る</span>
+        </div>
+      </a>
+
+      <a href="taikai.html" style="text-decoration:none; color:inherit;">
+        <div class="activity-card">
+          <svg class="activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <h4>大会出場</h4>
+          <p>東大カップ優勝など、各地の大会に参戦。</p>
+          <span class="btn btn-outline" style="display:inline-block; font-size:0.8rem; padding:8px 20px;">詳しく見る</span>
+        </div>
+      </a>
+
+      <a href="member.html" style="text-decoration:none; color:inherit;">
+        <div class="activity-card">
+          <svg class="activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3" stroke-dasharray="2 1"/><path d="M21 21v-2a4 4 0 0 0-3-3.87" stroke-dasharray="2 1"/></svg>
+          <h4>メンバー一覧</h4>
+          <p>個性豊かな選手たちのプロフィールはこちら。</p>
+          <span class="btn btn-outline" style="display:inline-block; font-size:0.8rem; padding:8px 20px;">詳しく見る</span>
+        </div>
+      </a>
+
+      <a href="SNS.html" style="text-decoration:none; color:inherit;">
+        <div class="activity-card">
+          <svg class="activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <h4>SNS・連絡先</h4>
+          <p>X / YouTube / Gmail でチームをフォロー。</p>
+          <span class="btn btn-outline" style="display:inline-block; font-size:0.8rem; padding:8px 20px;">詳しく見る</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-logo">Shinagawa Serpents</p>
+    <p>&copy; 2025 品川サーペンツ</p>
+    <p>文責: 藤田</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
 
 </body>
 </html>

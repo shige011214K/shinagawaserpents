@@ -1,131 +1,322 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>メンバー紹介 | 品川サーペンツ</title>
-    <style>
-        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンバー紹介 | 品川サーペンツ</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
 
-        /* 全体を包む袋（これ1つだけでOK！） */
-        .member-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    .member-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+    }
 
-        /* リンクの見た目を消す設定 */
-        .member-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 28px var(--red-glow);
+      border-color: var(--red);
+    }
 
-        .member-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            transition: transform 0.2s; /* マウスを乗せた時に少し動くオシャレ演出 */
-        }
+    /* 背景に薄く番号を表示 */
+    .member-number-bg {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(204,0,0,0.12);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
 
-        .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+    .member-photo-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 260px;
+      background-image: url('images/introduce_each_member/5896f22e-80ff-438c-b141-974a6d6df457.jpg');
+      background-size: cover;
+      background-position: center;
+    }
 
-        .member-card img {
-            width: 100%; /* 枠いっぱいに広げる */
-            height: 300px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
+    .member-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s;
+      filter: grayscale(20%);
+    }
 
-        /* スマホ設定：770px以下は1列 */
-        @media (max-width: 770px) {
-            .member-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .member-card:hover .member-photo-wrap img {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+
+    /* 写真の下端に赤いグラデーション */
+    .member-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to top, var(--bg-card), transparent);
+    }
+
+    .member-info {
+      padding: 16px 20px 24px;
+      position: relative;
+    }
+
+    .member-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      text-transform: uppercase;
+    }
+
+    .member-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    .member-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .member-card:hover .member-view { color: var(--red); }
+    .member-view::after { content: '→'; transition: transform 0.2s; }
+    .member-card:hover .member-view::after { transform: translateX(4px); }
+
+    .captain-badge {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 8px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--red);
+      color: #fff;
+      border-radius: 2px;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 500px) {
+      .member-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-    <h1 style="text-align: center;">メンバー紹介</h1>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="top_2.html" class="nav-logo">Shinagawa Serpents</a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="top_2.html">Home</a></li>
+        <li><a href="member.html" class="active">Members</a></li>
+        <li><a href="leagu.html">League</a></li>
+        <li><a href="taikai.html">Tournament</a></li>
+        <li><a href="SNS.html">SNS</a></li>
+      </ul>
+    </div>
+  </nav>
 
+  <!-- Page Header -->
+  <div class="page-header">
+    <p class="page-header-label">Shinagawa Serpents</p>
+    <h1>Members</h1>
+    <div class="page-header-line"></div>
+  </div>
+
+  <!-- Member Grid -->
+  <div class="section" style="padding-top: 0;">
     <div class="member-grid">
 
-        <a href="informationofmember/info_fujimoto.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/fujimoto.JPG" alt="藤本">
-                <h3>1 藤本</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_fujimoto.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">01</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/fujimoto_transparent.png" alt="藤本">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 01</p>
+            <p class="member-name">藤本</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_horiguchi.html" class="member-link">
-            <div class="member-card">
-                <img src="https://placehold.jp/24/cccccc/ffffff/300x300.png?text=No%20Image" alt="4">
-                <h3>4 堀口</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_horiguchi.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">04</div>
+          <div class="member-photo-wrap">
+            <img src="https://placehold.jp/24/1a1a1a/444444/600x520.png?text=No+Image" alt="堀口">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 04</p>
+            <p class="member-name">堀口</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_hagiwara.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/hagiwara.JPG" alt="萩原">
-                <h3>17 萩原</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_hagiwara.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">17</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/hagiwara_transparent.png" alt="萩原">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 17</p>
+            <p class="member-name">萩原</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_katopopo.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/katopopo.JPG" alt="加藤">
-                <h3>19 加藤</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_katopopo.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">19</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/kato_transparent.png" alt="加藤">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 19</p>
+            <p class="member-name">加藤</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_hamada.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/hamada.JPG" alt="濵田">
-                <h3>31 濵田</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_hamada.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">31</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/hamada_transparent.png" alt="濵田">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 31</p>
+            <p class="member-name">濵田</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_kosugi.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/kosugi.JPG" alt="小杉">
-                <h3>34 小杉 [代表]</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_kosugi.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">34</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/kosugi_transparent.png" alt="小杉">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 34</p>
+            <p class="member-name">小杉<span class="captain-badge">Captain</span></p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_matukawa.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/matukawa.JPG" alt="松川">
-                <h3>43 松川</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_matukawa.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">43</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/matsukawa_transparent.png" alt="松川">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 43</p>
+            <p class="member-name">松川</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_fujita.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/fujita.JPG" alt="藤田">
-                <h3>54 藤田</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_fujita.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">54</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/fujita_transparent.png" alt="藤田">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 54</p>
+            <p class="member-name">藤田</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_terada.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/terada.JPG" alt="寺田">
-                <h3>55 寺田</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_terada.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">55</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/terada_transparent.png" alt="寺田">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 55</p>
+            <p class="member-name">寺田</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-        <a href="informationofmember/info_shima.html" class="member-link">
-            <div class="member-card">
-                <img src="images/introduce_each_member/shima.JPG" alt="島">
-                <h3>95 島</h3>
-            </div>
-        </a>
+      <a href="informationofmember/info_shima.html" style="text-decoration:none; color:inherit;">
+        <div class="member-card">
+          <div class="member-number-bg">95</div>
+          <div class="member-photo-wrap">
+            <img src="images/introduce_each_member/shima_transparent.png" alt="島">
+          </div>
+          <div class="member-info">
+            <p class="member-num"># 95</p>
+            <p class="member-name">島</p>
+            <span class="member-view">プロフィールを見る</span>
+          </div>
+        </div>
+      </a>
 
-    </div> </body>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-logo">Shinagawa Serpents</p>
+    <p>&copy; 2025 品川サーペンツ</p>
+    <p>文責: 藤田</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
+
+</body>
 </html>

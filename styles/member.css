@@ -1,0 +1,201 @@
+/* Member detail page styles */
+
+.player-header {
+  position: relative;
+  overflow: hidden;
+  background-image: url('../images/introduce_each_member/5896f22e-80ff-438c-b141-974a6d6df457.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 420px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 暗めのオーバーレイでテキストを読みやすく */
+.player-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.player-number-bg {
+  position: absolute;
+  left: max(24px, calc((100vw - 1100px) / 2));
+  bottom: -20px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(8rem, 20vw, 16rem);
+  font-weight: 700;
+  color: rgba(204,0,0,0.12);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+  z-index: 1;
+}
+
+.player-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+  min-height: 420px;
+}
+
+.player-meta {
+  padding: 60px 0 48px;
+}
+
+/* 透過PNG — 右側に大きく */
+.player-photo {
+  height: 380px;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+}
+
+.player-photo-placeholder {
+  width: 140px;
+  height: 380px;
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 600px) {
+  .player-inner { grid-template-columns: 1fr; }
+  .player-photo { height: 240px; margin: 0 auto; }
+}
+
+.player-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player-num-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.player-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.player-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--red);
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-top: 4px;
+  width: fit-content;
+}
+
+@media (max-width: 560px) {
+  .player-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .player-photo, .player-photo-placeholder { margin: 0 auto; }
+  .player-badge { margin: 4px auto 0; }
+}
+
+/* Career */
+.career-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.career-item {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.career-arrow {
+  color: var(--red);
+  font-size: 0.8rem;
+}
+
+.career-current {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Video Section */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.video-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.video-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.video-channel {
+  font-size: 0.72rem;
+  color: #555;
+}
+
+/* No video */
+.no-video {
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  padding: 48px;
+  text-align: center;
+  color: var(--muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}

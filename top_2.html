@@ -82,17 +82,18 @@
       object-position: bottom center;
     }
 
-    /* 前列 2人: 最大・最前面 ─ 中央に隙間なく配置 */
-    .hero-player-item:nth-child(1) { left:  65px; bottom:    0; height: 66vh; z-index: 9; }
-    .hero-player-item:nth-child(2) { left: 325px; bottom:    0; height: 66vh; z-index: 8; }
+    /* 前列 3人: 最大・最前面 ─ 左・中央・右に配置 */
+    .hero-player-item:nth-child(1)  { left:  65px; bottom: 0; height: 66vh; z-index: 8; } /* 前列・左 */
+    .hero-player-item:nth-child(2)  { left: 195px; bottom: 0; height: 66vh; z-index: 9; } /* 前列・中央（最手前） */
+    .hero-player-item:nth-child(10) { left: 325px; bottom: 0; height: 66vh; z-index: 8; } /* 前列・右（追加） */
 
-    /* 後列 4人: 最小・最背面 ─ 全幅に隙間なく配置 */
-    .hero-player-item:nth-child(6) { left:   0px; bottom: 8vh; height: 38vh; z-index: 6; }
+    /* 中列 4人: 最小・最背面 ─ 全幅に隙間なく配置 */
+    .hero-player-item:nth-child(6) { left:   0px; bottom: 6vh; height: 46vh; z-index: 6; }
     .hero-player-item:nth-child(7) { left: 130px; bottom: 8vh; height: 38vh; z-index: 6; }
-    .hero-player-item:nth-child(8) { left: 260px; bottom: 8vh; height: 38vh; z-index: 6; }
+    .hero-player-item:nth-child(8) { left: 260px; bottom: 8vh; height: 15vh; z-index: 6; }
     .hero-player-item:nth-child(9) { left: 390px; bottom: 8vh; height: 38vh; z-index: 6; }
 
-    /* 中列 3人: 中段に隙間なく配置 */
+    /* 後列 3人: 後段に隙間なく配置 */
     .hero-player-item:nth-child(3) { left:  65px; bottom: 16vh; height: 52vh; z-index: 4; }
     .hero-player-item:nth-child(4) { left: 195px; bottom: 16vh; height: 52vh; z-index: 4; }
     .hero-player-item:nth-child(5) { left: 325px; bottom: 16vh; height: 52vh; z-index: 4; }
@@ -300,15 +301,17 @@
     <div class="hero-accent"></div>
 
     <div class="hero-players">
-      <div class="hero-player-item"><img src="images/introduce_each_member/fujimoto_transparent.png"  alt="藤本"></div>
-      <div class="hero-player-item"><img src="images/introduce_each_member/hagiwara_transparent.png"  alt="萩原"></div>
-      <div class="hero-player-item"><img src="images/introduce_each_member/kato_transparent.png"      alt="加藤"></div>
-      <div class="hero-player-item"><img src="images/introduce_each_member/hamada_transparent.png"    alt="濵田"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/fujita_transparent.png"    alt="藤田"></div>
       <div class="hero-player-item"><img src="images/introduce_each_member/kosugi_transparent.png"    alt="小杉"></div>
       <div class="hero-player-item"><img src="images/introduce_each_member/matsukawa_transparent.png" alt="松川"></div>
-      <div class="hero-player-item"><img src="images/introduce_each_member/fujita_transparent.png"    alt="藤田"></div>
-      <div class="hero-player-item"><img src="images/introduce_each_member/terada_transparent.png"    alt="寺田"></div>
       <div class="hero-player-item"><img src="images/introduce_each_member/shima_transparent.png"     alt="島"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/hagiwara_transparent.png"  alt="萩原"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/hamada_transparent.png"    alt="濵田"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/kato_transparent.png"      alt="加藤"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/horiguchi/horiguchi_transparent.PNG"    alt="堀口"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/terada_transparent.png"    alt="寺田"></div>
+      <div class="hero-player-item"><img src="images/introduce_each_member/fujimoto_transparent.png"  alt="藤本"></div>
+      
     </div>
 
     <div class="hero-content">
@@ -337,7 +340,7 @@
       </div>
       <div class="about-stats">
         <div class="stat">
-          <div class="stat-num">10+</div>
+          <div class="stat-num">11</div>
           <div class="stat-label">メンバー数</div>
         </div>
         <div class="stat">
